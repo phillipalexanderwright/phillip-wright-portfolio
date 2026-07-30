@@ -659,6 +659,12 @@ h2 {
   width: min(82%, 36rem);
 }
 
+.case-media.project-media-alta img {
+  width: min(82%, 36rem);
+  max-height: 68%;
+  filter: none;
+}
+
 .case-copy {
   min-width: 0;
 }
@@ -678,6 +684,11 @@ h2 {
   font-size: 5.4rem;
   font-weight: 300;
   line-height: 0.92;
+}
+
+.case-heading h3.case-title-long {
+  font-size: 4.4rem;
+  white-space: nowrap;
 }
 
 .case-signal {
@@ -1205,6 +1216,10 @@ h1[data-reveal] span + span {
     font-size: 4.2rem;
   }
 
+  .case-heading h3.case-title-long {
+    font-size: 3.6rem;
+  }
+
   .archive-project-copy {
     grid-template-columns: 1fr;
     gap: 2rem;
@@ -1413,6 +1428,10 @@ h1[data-reveal] span + span {
 
   .case-heading h3 {
     font-size: 3.4rem;
+  }
+
+  .case-heading h3.case-title-long {
+    font-size: 3.1rem;
   }
 
   .case-details div,

@@ -1,10 +1,10 @@
 .DS_Store
+.codex-git/
 .vercel/
 tmp/
 tools/
 *.zip
 phillip-wright-resume.html
 output/pdf/phillip-wright-resume-snapshot.pdf
-assets/alta-gardens-logo.svg
 assets/brainstorm-logo.svg
 assets/phillip-wright-portrait.png

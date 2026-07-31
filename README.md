@@ -8,6 +8,9 @@ infrastructure, and creative systems.
 Open `index.html` in a browser. The site is a static HTML, CSS, and JavaScript
 package with no build step.
 
+Project portfolio pages use `project.html?project=<project-key>`. Shared project
+copy, links, logos, and proof points live in `project-data.js`.
+
 ## Deployment
 
 The repository is configured for direct static deployment on Vercel.

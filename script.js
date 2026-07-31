@@ -118,52 +118,28 @@ archiveItems.forEach((item) => {
   });
 });
 
-const projectDestinations = {
-  dawn: {
-    website: "https://dawn.care",
-    instagram: "",
-  },
-  anara: {
-    website: "https://anara.care",
-    instagram: "https://www.instagram.com/anarahospice/",
-  },
-  aevra: {
-    website: "https://aevra.care/",
-    instagram: "https://www.instagram.com/rideaevra/",
-  },
-  footplay: {
-    website: "",
-    instagram: "https://www.instagram.com/footplaycollective/?hl=en",
-  },
-  strasbourg: {
-    website: "",
-    instagram: "https://www.instagram.com/strasbourg.fever/?hl=en",
-  },
-  badsoup: {
-    website: "",
-    instagram: "https://www.instagram.com/badsoup/?hl=en",
-  },
-  brainstorm: {
-    website: "",
-    instagram: "https://www.instagram.com/operationbrainstorm/?hl=en",
-  },
-};
-
 const projectLinkLabels = {
+  portfolio: "Portfolio",
   website: "Website",
   instagram: "Instagram",
 };
 
 document.querySelectorAll("[data-project-links]").forEach((container) => {
-  const destinations = projectDestinations[container.dataset.projectLinks] || {};
+  const project = window.PROJECTS?.[container.dataset.projectLinks];
+  const destinations = project?.links || {};
   const availableLinks = Object.entries(destinations).filter(([, href]) => href);
 
   availableLinks.forEach(([type, href]) => {
     const link = document.createElement("a");
     link.className = "project-link";
     link.href = href;
-    link.target = "_blank";
-    link.rel = "noopener noreferrer";
+    link.dataset.linkType = type;
+
+    if (type !== "portfolio") {
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+    }
+
     link.textContent = projectLinkLabels[type] || type;
     container.append(link);
   });

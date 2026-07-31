@@ -123,8 +123,8 @@
       logo: "",
       links: {
         portfolio: portfolioPath("balboa"),
-        website: "",
-        instagram: "",
+        website: "https://balboahc.com/",
+        instagram: "https://www.instagram.com/balboanursing/",
       },
     },
     footplay: {

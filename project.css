@@ -1020,7 +1020,8 @@ button:focus-visible {
   }
 
   .project-wordmark {
-    font-size: 3rem;
+    width: 86%;
+    font-size: 2rem;
   }
 
   .project-hero-index div {
@@ -1077,7 +1078,8 @@ button:focus-visible {
   }
 
   .slide-mark .project-wordmark {
-    font-size: 3rem;
+    width: 100%;
+    font-size: 1.7rem;
   }
 
   .slide-scope-heading {

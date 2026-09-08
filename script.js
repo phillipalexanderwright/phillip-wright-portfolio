@@ -129,6 +129,18 @@ document.querySelectorAll("[data-project-links]").forEach((container) => {
   const destinations = project?.links || {};
   const availableLinks = Object.entries(destinations).filter(([, href]) => href);
 
+  const projectCopy = container.closest(".case-copy, .archive-project-copy");
+  const summary = projectCopy?.classList.contains("case-copy")
+    ? projectCopy.querySelector(".case-signal")
+    : projectCopy?.querySelector(":scope > p");
+  const stamp = [project?.position, project?.status].filter(Boolean).join(" / ");
+  if (summary && stamp) {
+    const stampNode = document.createElement("span");
+    stampNode.className = "project-stamp";
+    stampNode.textContent = stamp;
+    summary.prepend(stampNode);
+  }
+
   availableLinks.forEach(([type, href]) => {
     const link = document.createElement("a");
     link.className = "project-link";

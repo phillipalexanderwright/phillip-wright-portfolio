@@ -15,6 +15,13 @@ copy, links, logos, and proof points live in `project-data.js`.
 
 The repository is configured for direct static deployment on Vercel.
 
+## Analytics
+
+`analytics.js` loads Vercel Web Analytics in production. Standard page visits
+work on every Vercel plan. It also records `Project Open`, `Resume Download`,
+and `Email Click` events; Vercel displays custom events on Pro and Enterprise
+plans.
+
 ## Resume
 
 The public resume is stored at:

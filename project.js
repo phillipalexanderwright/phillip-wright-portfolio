@@ -108,6 +108,42 @@ function createMediaSlide(asset, frameNumber) {
   return slide;
 }
 
+function createIndexSlide(projectData, asset, frameNumber) {
+  const slide = document.createElement("article");
+  slide.className = "showcase-slide slide-index";
+  slide.dataset.slideTitle = asset.title;
+
+  const copy = document.createElement("div");
+  copy.className = "slide-index-copy slide-animate";
+  copy.append(createLabel(frameLabel(frameNumber, asset.label || "Archive Index")));
+
+  const title = document.createElement("h3");
+  title.textContent = asset.title;
+
+  const caption = document.createElement("p");
+  caption.textContent = asset.caption;
+  copy.append(title, caption);
+
+  const index = document.createElement("ol");
+  index.className = "slide-index-list slide-animate";
+  asset.items.forEach((item, itemIndex) => {
+    const row = document.createElement("li");
+
+    const number = document.createElement("span");
+    number.textContent = String(itemIndex + 1).padStart(2, "0");
+
+    const label = document.createElement("strong");
+    label.textContent = item;
+
+    row.append(number, label);
+    index.append(row);
+  });
+
+  const mark = createProjectMark(projectData, "slide-index-mark slide-animate");
+  slide.append(copy, index, mark);
+  return slide;
+}
+
 function createScopeSlide(projectData, frameNumber) {
   const slide = document.createElement("article");
   slide.className = "showcase-slide slide-scope";
@@ -199,6 +235,10 @@ function populateProjectPage() {
   setText("[data-project-group]", project.group);
   setText("[data-project-number]", project.number);
   setText("[data-project-category]", project.category);
+  setText(
+    "[data-project-stamp]",
+    [project.position, project.status].filter(Boolean).join(" / ")
+  );
   const titleNode = document.querySelector("[data-project-title]");
   if (titleNode) {
     titleNode.textContent = project.title;
@@ -244,7 +284,11 @@ function populateProjectPage() {
   const gallery = project.gallery || [];
   const slides = [
     createIdentitySlide(project, 1),
-    ...gallery.map((asset, index) => createMediaSlide(asset, index + 2)),
+    ...gallery.map((asset, index) =>
+      asset.type === "index"
+        ? createIndexSlide(project, asset, index + 2)
+        : createMediaSlide(asset, index + 2)
+    ),
     createScopeSlide(project, gallery.length + 2),
     createImpactSlide(project, gallery.length + 3),
   ];

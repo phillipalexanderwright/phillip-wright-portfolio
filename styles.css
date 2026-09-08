@@ -701,6 +701,21 @@ h2 {
   line-height: 1.45;
 }
 
+.project-stamp {
+  display: block;
+  margin-bottom: 0.9rem;
+  color: var(--olive);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.archive-project-copy > p .project-stamp {
+  margin-bottom: 1rem;
+}
+
 .case-details {
   display: grid;
   gap: 1.25rem;

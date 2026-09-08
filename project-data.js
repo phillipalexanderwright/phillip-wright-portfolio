@@ -9,6 +9,8 @@
       group: "Care Infrastructure",
       summary:
         "Leading a 160-person skilled nursing operation through rapid growth, full occupancy, and a more disciplined operating model.",
+      position: "Administrator",
+      status: "Current",
       role:
         "I serve as Administrator, leading clinical, administrative, and support teams across census, payer mix, staffing, compliance, referral growth, and specialty service lines.",
       impact:
@@ -89,6 +91,8 @@
       group: "Care Infrastructure",
       summary:
         "Building specialized residential care infrastructure for people with higher-acuity developmental and behavioral needs.",
+      position: "Leadership + Operations",
+      status: "Active",
       role:
         "I help lead business strategy, licensing, operations, growth, program development, administrator support, compliance planning, and expansion.",
       impact:
@@ -145,6 +149,8 @@
       group: "Care Infrastructure",
       summary:
         "Bringing clinical oversight, thoughtful operations, and patient dignity together at one of healthcare's most personal moments.",
+      position: "Founder + Operator",
+      status: "Active",
       role:
         "I am a founder/operator involved in strategy, partnerships, compliance, growth, medical leadership alignment, and operational problem-solving.",
       impact:
@@ -211,6 +217,8 @@
       group: "Care Infrastructure",
       summary:
         "Building safer, more reliable non-emergency medical transportation around the needs and dignity of each patient.",
+      position: "Founder + Operator",
+      status: "Active",
       role:
         "I lead the company vision, brand, business model, partnerships, launch strategy, and operational structure.",
       impact:
@@ -284,6 +292,8 @@
       group: "Care Infrastructure",
       summary:
         "A 370-person, high-acuity skilled nursing operation led through census growth, workforce stabilization, regulatory performance, and financial improvement.",
+      position: "Administrator",
+      status: "Previous Role",
       role:
         "I served as Administrator across clinical, administrative, and support teams, aligning staffing, referrals, quality, compliance, and operating performance.",
       impact:
@@ -299,6 +309,44 @@
       ],
       accent: "#687451",
       logo: "",
+      gallery: [
+        {
+          src: "assets/portfolio/balboa/entrance.jpg",
+          label: "Facility",
+          title: "A high-acuity operation at scale",
+          caption:
+            "Balboa's physical campus was the setting for a 370-person operation spanning clinical care, staffing, referrals, compliance, and financial performance.",
+          alt: "Main entrance to Balboa Nursing and Rehabilitation Center.",
+          fit: "cover",
+        },
+        {
+          src: "assets/portfolio/balboa/reception.jpg",
+          label: "Operating Environment",
+          title: "Clarity at the center of the building",
+          caption:
+            "The work connected resident experience with the daily coordination required across clinical, administrative, and support teams.",
+          alt: "Central reception area inside Balboa Nursing and Rehabilitation Center.",
+          fit: "cover",
+        },
+        {
+          src: "assets/portfolio/balboa/rehabilitation.jpg",
+          label: "Clinical Services",
+          title: "Rehabilitation as an operating system",
+          caption:
+            "Specialty services, care delivery, workforce planning, and referral growth had to move together to improve both access and performance.",
+          alt: "Rehabilitation equipment inside Balboa Nursing and Rehabilitation Center.",
+          fit: "cover",
+        },
+        {
+          src: "assets/portfolio/balboa/signage.jpg",
+          label: "Community Presence",
+          title: "A facility people could rely on",
+          caption:
+            "The outcome was a fuller, more stable operation with stronger financial performance and a five-star overall rating.",
+          alt: "Balboa Nursing and Rehabilitation Center sign viewed from the sidewalk.",
+          fit: "cover",
+        },
+      ],
       links: {
         portfolio: portfolioPath("balboa"),
         website: "https://balboahc.com/",
@@ -312,6 +360,8 @@
       group: "Creative Systems",
       summary:
         "A music and event collective centered around house, disco, open-air shows, underground nightlife, and intentional community.",
+      position: "Founder + Creative Lead",
+      status: "Active",
       role:
         "I am the founder, curator, and creative lead across the brand, events, music direction, and overall experience.",
       impact:
@@ -369,6 +419,8 @@
       group: "Creative Systems",
       summary:
         "My artist identity for DJing and production, rooted in atmospheric disco, jackin house, minimal, and nu-disco.",
+      position: "Artist + Producer",
+      status: "Active",
       role:
         "I create and perform under this alias as a distinct creative lane from my healthcare and business ventures.",
       impact:
@@ -436,6 +488,8 @@
       group: "Creative Systems",
       summary:
         "A collective at the intersection of skate culture, punk, local art, shows, merchandise, magazines, and collaboration.",
+      position: "Creative Direction",
+      status: "Archive",
       role:
         "I helped shape the vision, creative direction, events, collaborations, and cultural energy behind the collective.",
       impact:
@@ -446,6 +500,24 @@
       metrics: [],
       accent: "#954130",
       logo: "assets/badsoup-logo.svg",
+      credit: "Creative direction: Phillip Wright.",
+      gallery: [
+        {
+          type: "index",
+          label: "Archive Index",
+          title: "A collective built across formats",
+          caption:
+            "Bad Soup moved through the places local culture actually lives: shows, printed matter, merchandise, collaboration, and shared space.",
+          items: [
+            "Shows",
+            "Magazines",
+            "Merchandise",
+            "Collaborations",
+            "Skate Culture",
+            "Local Art",
+          ],
+        },
+      ],
       links: {
         portfolio: portfolioPath("badsoup"),
         website: "",
@@ -459,6 +531,8 @@
       group: "Creative Systems",
       summary:
         "My first production outlet, built to bring intentional house-music experiences to Provo, Utah.",
+      position: "Producer + Creative Lead",
+      status: "Archive",
       role:
         "I helped develop the concept, partnerships, talent booking, production investment, and event direction.",
       impact:
@@ -469,6 +543,39 @@
       metrics: [],
       accent: "#3b0014",
       logo: "assets/brainstorm-logo.png",
+      credit: "Creative direction: Phillip Wright.",
+      gallery: [
+        {
+          src: "assets/portfolio/brainstorm/campaign.webp",
+          label: "Live Experience",
+          title: "House music found a room",
+          caption:
+            "Brainstorm created a dedicated space for house music in Provo through considered bookings, sound, lighting, and atmosphere.",
+          alt: "Crowded black-and-white Brainstorm house music event with projected event graphics.",
+          fit: "cover",
+          position: "center 55%",
+        },
+        {
+          src: "assets/portfolio/brainstorm/identity.png",
+          label: "Identity",
+          title: "An idea with its own face",
+          caption:
+            "The hand-drawn Brainstorm character gave the series a strange, immediate identity that could travel between posters, installations, and merchandise.",
+          alt: "Hand-drawn Brainstorm face and cloud identity in black and white.",
+          fit: "contain",
+          background: "#050505",
+        },
+        {
+          src: "assets/portfolio/brainstorm/collection.webp",
+          label: "Merchandise",
+          title: "The event became something you could keep",
+          caption:
+            "Apparel extended the project beyond a single night and gave the early community a physical piece of the world around it.",
+          alt: "Black and white Operation Brainstorm shirts shown as a merchandise collection.",
+          fit: "contain",
+          background: "#d8d8d8",
+        },
+      ],
       links: {
         portfolio: portfolioPath("brainstorm"),
         website: "",

@@ -10,6 +10,7 @@
   --starlight: #f0e7c2;
   --ink: #10100f;
   --project-accent: #687451;
+  --project-accent-text: color-mix(in srgb, var(--project-accent) 40%, var(--chalk));
   --page-pad: 5.5rem;
   --font-sans:
     "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, -apple-system,
@@ -211,7 +212,7 @@ button:focus-visible {
 }
 
 .project-route span:last-child {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
 }
 
 .project-hero-copy {
@@ -230,7 +231,7 @@ button:focus-visible {
 }
 
 .project-eyebrow span:first-child {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
 }
 
 .project-eyebrow span + span::before {
@@ -285,7 +286,7 @@ button:focus-visible {
 }
 
 .project-external-link::after {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
   content: "↗";
 }
 
@@ -374,7 +375,7 @@ button:focus-visible {
 }
 
 .project-hero-index dt {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
 }
 
 .project-hero-index dd {
@@ -400,7 +401,7 @@ button:focus-visible {
 }
 
 .showcase-heading > div > span {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
 }
 
 .showcase-heading h2,
@@ -470,7 +471,7 @@ button:focus-visible {
 }
 
 .slide-label {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
 }
 
 .slide-media {
@@ -672,7 +673,7 @@ button:focus-visible {
 }
 
 .slide-index-list span {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
   font-family: var(--font-mono);
   font-size: 0.68rem;
 }
@@ -865,7 +866,7 @@ button:focus-visible {
 }
 
 .carousel-dot[aria-selected="true"] {
-  background: var(--project-accent);
+  background: var(--project-accent-text);
   transform: scaleY(1.6);
 }
 
@@ -893,7 +894,7 @@ button:focus-visible {
 }
 
 .project-notes-heading > span {
-  color: var(--project-accent);
+  color: var(--project-accent-text);
 }
 
 .project-notes dl {

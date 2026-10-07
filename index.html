@@ -19,7 +19,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="assets/og-phillip-wright.jpg">
     <link rel="icon" href="assets/favicon.png" type="image/png">
-    <link rel="stylesheet" href="styles.css?v=20260907-1">
+    <link rel="stylesheet" href="styles.css?v=20260930-1">
   </head>
   <body>
     <header class="site-header" data-reveal>
@@ -79,6 +79,9 @@
                 class="portrait-image"
                 src="assets/phillip-wright-portrait.jpg"
                 alt="Portrait of Phillip Wright"
+                width="1200"
+                height="1200"
+                fetchpriority="high"
               >
             </div>
             <figcaption>
@@ -175,6 +178,20 @@
                 Leading a 160-person skilled nursing operation through rapid growth,
                 full occupancy, and a more disciplined operating model.
               </p>
+              <dl class="case-results" aria-label="Alta Gardens results">
+                <div>
+                  <dt>Monthly revenue</dt>
+                  <dd>$2.5M <span>from $1.2M</span></dd>
+                </div>
+                <div>
+                  <dt>Occupancy</dt>
+                  <dd>100% <span>from 85%</span></dd>
+                </div>
+                <div>
+                  <dt>Overtime + double-time</dt>
+                  <dd>3% <span>from 15%</span></dd>
+                </div>
+              </dl>
               <dl class="case-details">
                 <div>
                   <dt>My role</dt>
@@ -182,13 +199,6 @@
                     I serve as Administrator, leading clinical, administrative, and
                     support teams across census, payer mix, staffing, compliance,
                     referral growth, and specialty service lines.
-                  </dd>
-                </div>
-                <div>
-                  <dt>Why it matters</dt>
-                  <dd>
-                    Monthly revenue grew from $1.2M to $2.5M, occupancy rose from
-                    85% to 100%, and overtime and double-time fell from 15% to 3%.
                   </dd>
                 </div>
               </dl>
@@ -341,6 +351,26 @@
             </div>
           </article>
         </div>
+
+        <figure class="creative-moment" data-reveal>
+          <a class="creative-moment-image" href="project.html?project=footplay" aria-label="View the Footplay portfolio">
+            <img
+              src="assets/portfolio/footplay/live-room.jpg"
+              alt="A Footplay event: DJs and a crowd beneath a disco ball"
+              width="1800"
+              height="1200"
+              loading="lazy"
+              decoding="async"
+            >
+          </a>
+          <figcaption>
+            <div>
+              <span>Footplay / Music + Community</span>
+              <p>The same instinct. A different kind of room.</p>
+            </div>
+            <a class="text-link" href="project.html?project=footplay">View Footplay</a>
+          </figcaption>
+        </figure>
 
         <div class="project-archive">
           <div class="archive-heading" data-reveal>
@@ -640,6 +670,6 @@
 
     <script src="analytics.js?v=20260907-1"></script>
     <script src="project-data.js?v=20260907-1"></script>
-    <script src="script.js?v=20260907-1"></script>
+    <script src="script.js?v=20260930-1"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 const contactEmail = "phillipalexanderwright@gmail.com";
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const motionPreference = window.matchMedia("(prefers-reduced-motion: reduce)");
 
 document.querySelectorAll("[href^='mailto:'], [data-email-link]").forEach((link) => {
   const currentHref = link.getAttribute("href") || "";
@@ -19,43 +19,51 @@ if (yearNode) {
   yearNode.textContent = new Date().getFullYear();
 }
 
-const siteHeader = document.querySelector(".site-header");
-
-function syncHeaderState() {
-  siteHeader?.classList.toggle("is-scrolled", window.scrollY > 24);
-}
-
-syncHeaderState();
-window.addEventListener("scroll", syncHeaderState, { passive: true });
-
 const revealNodes = document.querySelectorAll("[data-reveal]");
 
-if ("IntersectionObserver" in window) {
+if ("IntersectionObserver" in window && !motionPreference.matches) {
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
+        entry.target.classList.remove("reveal-pending");
         entry.target.classList.add("is-visible");
         revealObserver.unobserve(entry.target);
       });
     },
-    { rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+    { rootMargin: "0px 0px -24px 0px", threshold: 0 }
   );
 
-  revealNodes.forEach((node, index) => {
-    if (!prefersReducedMotion) {
-      node.style.setProperty("--reveal-delay", `${Math.min((index % 4) * 70, 210)}ms`);
+  revealNodes.forEach((node) => {
+    // First-screen content is always visible, even if scripts load late.
+    if (node.getBoundingClientRect().top >= window.innerHeight) {
+      revealObserver.observe(node);
+      node.classList.add("reveal-pending");
     }
-    revealObserver.observe(node);
   });
-} else {
-  revealNodes.forEach((node) => node.classList.add("is-visible"));
+
+  motionPreference.addEventListener("change", (event) => {
+    if (!event.matches) return;
+    revealObserver.disconnect();
+    revealNodes.forEach((node) => node.classList.remove("reveal-pending"));
+  });
+
+  document.addEventListener("focusin", (event) => {
+    const pending = event.target.closest(".reveal-pending");
+    if (!pending) return;
+    pending.classList.remove("reveal-pending");
+    revealObserver.unobserve(pending);
+  });
 }
 
 const sections = document.querySelectorAll("[data-section]");
 const railLinks = document.querySelectorAll("[data-section-link]");
+const siteHeader = document.querySelector(".site-header");
+let activeSectionId;
 
 function activateSection(sectionId) {
+  if (sectionId === activeSectionId) return;
+  activeSectionId = sectionId;
   document.body.classList.toggle("show-section-rail", sectionId !== "top");
 
   railLinks.forEach((link) => {
@@ -69,40 +77,54 @@ function activateSection(sectionId) {
   });
 }
 
-if ("IntersectionObserver" in window && sections.length) {
-  const sectionVisibility = new Map();
+function syncPagePosition() {
+  siteHeader?.classList.toggle("is-scrolled", window.scrollY > 24);
+
+  // Track section starts, not visibility ratios: Work spans several screens.
+  const readingLine = Math.max((siteHeader?.offsetHeight || 0) + 24, window.innerHeight * 0.28);
+  let currentSection = sections[0];
+  sections.forEach((section) => {
+    if (section.getBoundingClientRect().top <= readingLine) currentSection = section;
+  });
+  if (currentSection) activateSection(currentSection.dataset.section);
+}
+
+let positionFrame = null;
+function schedulePositionSync() {
+  if (positionFrame !== null) return;
+  positionFrame = window.requestAnimationFrame(() => {
+    positionFrame = null;
+    syncPagePosition();
+  });
+}
+
+syncPagePosition();
+window.addEventListener("scroll", schedulePositionSync, { passive: true });
+window.addEventListener("resize", schedulePositionSync);
+window.addEventListener("pageshow", schedulePositionSync);
+window.addEventListener("load", schedulePositionSync);
+document.addEventListener("toggle", schedulePositionSync, true);
+
+if ("ResizeObserver" in window) {
+  const layoutObserver = new ResizeObserver(schedulePositionSync);
+  sections.forEach((section) => layoutObserver.observe(section));
+}
+
+if ("IntersectionObserver" in window) {
   const sectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        sectionVisibility.set(entry.target, entry.intersectionRatio);
-        entry.target.classList.toggle("is-inview", entry.isIntersecting);
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-inview");
+        sectionObserver.unobserve(entry.target);
       });
-
-      let activeSection = null;
-      let activeRatio = 0;
-
-      sections.forEach((section) => {
-        const ratio = sectionVisibility.get(section) || 0;
-        if (ratio > activeRatio) {
-          activeSection = section;
-          activeRatio = ratio;
-        }
-      });
-
-      if (activeSection && activeRatio > 0.1) {
-        activateSection(activeSection.dataset.section);
-      }
     },
-    {
-      rootMargin: "-24% 0px -44% 0px",
-      threshold: [0, 0.12, 0.24, 0.4, 0.6],
-    }
+    { threshold: 0 }
   );
 
   sections.forEach((section) => sectionObserver.observe(section));
 } else {
-  document.querySelector(".section")?.classList.add("is-inview");
-  activateSection("top");
+  sections.forEach((section) => section.classList.add("is-inview"));
 }
 
 const archiveItems = document.querySelectorAll(".archive-item");

@@ -11,6 +11,11 @@ package with no build step.
 Project portfolio pages use `project.html?project=<project-key>`. Shared project
 copy, links, logos, and proof points live in `project-data.js`.
 
+## Checks
+
+Run `node --check script.js` and `node --test tests/script.test.cjs` for syntax,
+section navigation, reveal, and reduced-motion regression checks.
+
 ## Deployment
 
 The repository is configured for direct static deployment on Vercel.
